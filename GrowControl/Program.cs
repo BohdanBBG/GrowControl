@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Text;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.Extensions.FileProviders;
 
 namespace GrowControl
 {
@@ -72,6 +73,13 @@ namespace GrowControl
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider
+            //    (
+            //        Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\app")
+            //    ),
+            //});
 
             app.MapDefaultControllerRoute();
         }
